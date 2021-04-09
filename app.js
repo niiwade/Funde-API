@@ -12,6 +12,7 @@ const fundingcriteriaRoutes = require('./routes/funding_criteria');
 const fundingdetailRoutes = require('./routes/funding_detail');
 const fundingdisbursementRoutes = require('./routes/funding_disbursement');
 const fundingprojectRoutes = require('./routes/funding_project');
+const authRoutes = require('./routes/auth');
 
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(morgan("tiny"));
 
 //Routes
 app.use('/users', usersRoutes);
+app.use('/auth', authRoutes);
 app.use('/client', clientRoutes);
 app.use('/document', documentRoutes);
 app.use('/funding_application', fundingapplicationRoutes);
