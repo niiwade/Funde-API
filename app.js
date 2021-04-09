@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 const usersRoutes = require('./routes/users');
 const smeRoutes = require('./routes/smes');
 const investorRoutes = require('./routes/investor');
@@ -18,9 +19,11 @@ const authRoutes = require('./routes/auth');
 const app = express();
 const PORT = 3000;
 
-
-
 dotenv.config();
+
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }, () => {
+    console.log('Connected to MongoDB');
+});
 
 //init body-parser middleware
 app.use(bodyParser.json());
