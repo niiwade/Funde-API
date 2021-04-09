@@ -5,17 +5,22 @@ const router = express.Router();
 
 
 // REGISTER     
-router.get('/register', async(req, res) => {
-    const user = await new User({
-        firstName: "Jose",
-        lastName: "Lmaptey",
-        username: "wadey",
-        email: "Joe@gmail.com",
-        password: "12344"
+router.post('/register', async(req, res) => {
+    const newUser = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
     });
 
-    await user.save();
-    res.send('Ok');
+
+    try {
+        const user = await newUser.save();
+        res.status(200).json(user);
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 module.exports = router;
