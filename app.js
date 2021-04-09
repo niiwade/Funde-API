@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const helmet = require('helmet');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const usersRoutes = require('./routes/users');
@@ -11,7 +12,7 @@ const clientRoutes = require('./routes/client');
 const documentRoutes = require('./routes/document');
 const fundingapplicationRoutes = require('./routes/funding_application');
 const fundingcriteriaRoutes = require('./routes/funding_criteria');
-const fundingdetailRoutes = require('./routes/funding_detail');
+const fundingdetailRoutes = require('./routes/funding_details');
 const fundingdisbursementRoutes = require('./routes/funding_disbursement');
 const fundingprojectRoutes = require('./routes/funding_project');
 
@@ -28,6 +29,9 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
 
 //init body-parser middleware
 app.use(bodyParser.json());
+
+//helmet middleware
+app.use(helmet());
 
 //morgan middleware
 app.use(morgan("tiny"));
