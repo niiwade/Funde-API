@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const usersRoutes = require('./routes/users');
+const authRoutes = require('./routes/auth');
 const smeRoutes = require('./routes/smes');
 const investorRoutes = require('./routes/investor');
 const clientRoutes = require('./routes/client');
@@ -13,7 +14,7 @@ const fundingcriteriaRoutes = require('./routes/funding_criteria');
 const fundingdetailRoutes = require('./routes/funding_detail');
 const fundingdisbursementRoutes = require('./routes/funding_disbursement');
 const fundingprojectRoutes = require('./routes/funding_project');
-const authRoutes = require('./routes/auth');
+
 
 
 const app = express();

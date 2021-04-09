@@ -1,11 +1,21 @@
 const express = require('express');
+const User = require('../models/User');
 
 const router = express.Router();
 
 
-// routes lead to users     
-router.get('/', (req, res) => {
-    res.send('auth routes fired');
+// REGISTER     
+router.get('/register', async(req, res) => {
+    const user = await new User({
+        firstName: "Jose",
+        lastName: "Lmaptey",
+        username: "wadey",
+        email: "Joe@gmail.com",
+        password: "12344"
+    });
+
+    await user.save();
+    res.send('Ok');
 });
 
 module.exports = router;
