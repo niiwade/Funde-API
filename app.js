@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const usersRoutes = require('./routes/users');
-const smeRoutes = require('./routes/smes')
+const smeRoutes = require('./routes/smes');
+const investorRoutes = require('./routes/investor');
 
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(morgan("tiny"));
 
 //Routes
 app.use('/users', usersRoutes);
+app.use('/investor', investorRoutes);
 app.use('/smes', smeRoutes);
 app.get('/', (req, res) => {
     res.send('Hello');
