@@ -33,17 +33,17 @@ app.use(morgan("tiny"));
 
 
 //Routes
-app.use('/users', usersRoutes);
-app.use('/auth', authRoutes);
-app.use('/client', clientRoutes);
-app.use('/document', documentRoutes);
-app.use('/funding_application', fundingapplicationRoutes);
-app.use('/funding_criteria', fundingcriteriaRoutes);
-app.use('/funding_details', fundingdetailRoutes);
-app.use('/funding_disbursement', fundingdisbursementRoutes);
-app.use('/funding_project', fundingprojectRoutes);
-app.use('/investor', investorRoutes);
-app.use('/smes', smeRoutes);
+app.use('/api/users', usersRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/client', clientRoutes);
+app.use('/api/document', documentRoutes);
+app.use('/api/funding_application', fundingapplicationRoutes);
+app.use('/api/funding_criteria', fundingcriteriaRoutes);
+app.use('/api/funding_details', fundingdetailRoutes);
+app.use('/api/funding_disbursement', fundingdisbursementRoutes);
+app.use('/api/funding_project', fundingprojectRoutes);
+app.use('/api/investor', investorRoutes);
+app.use('/api/smes', smeRoutes);
 app.get('/', (req, res) => {
     res.send('Hello');
 });
