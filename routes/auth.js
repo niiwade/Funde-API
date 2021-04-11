@@ -45,12 +45,16 @@ router.post('/login', async(req, res) => {
         !user && res.status(404).json("User not found");
 
         //check for valid password
-        const validatePassword = await bcrypt.compare(req.body.password, user.password);
-        !validatePassword && res.status(400).json("Wrong password");
+        const validPassword = await bcrypt.compare(req.body.password, user.password);
+        !validPassword && res.status(400).json("Wrong password");
+
+
+        //if user passes validation
+        res.status(200).json(user);
 
 
     } catch (err) {
-        console.log(err);
+        res.status(500).json(err);
     }
 
 
