@@ -15,6 +15,7 @@ const fundingcriteriaRoutes = require('./routes/funding_criteria');
 const fundingdetailRoutes = require('./routes/funding_details');
 const fundingdisbursementRoutes = require('./routes/funding_disbursement');
 const fundingprojectRoutes = require('./routes/funding_project');
+const postRoutes = require('./routes/posts');
 
 
 
@@ -49,6 +50,7 @@ app.use('/api/funding_disbursement', fundingdisbursementRoutes);
 app.use('/api/funding_project', fundingprojectRoutes);
 app.use('/api/investor', investorRoutes);
 app.use('/api/smes', smeRoutes);
+app.use('/api/posts', postRoutes);
 app.get('/', (req, res) => {
     res.send('Hello');
 });
